@@ -359,14 +359,13 @@ module ActiveMerchant
 
             # I don't know all of the options that UPS supports for labels
             # so I'm going with something very simple for now.
-            label_image_format = options[:label_image_format] ||= 'GIF'
             xml.LabelSpecification do
               xml.LabelPrintMethod do
-                xml.Code(label_image_format)
+                xml.Code('GIF')
               end
               xml.HTTPUserAgent('Mozilla/4.5') # hmmm
-              xml.LabelImageFormat(label_image_format) do
-                xml.Code(label_image_format)
+              xml.LabelImageFormat('GIF') do
+                xml.Code('GIF')
               end
             end
           end
