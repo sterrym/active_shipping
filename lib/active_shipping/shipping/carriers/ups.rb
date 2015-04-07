@@ -715,7 +715,7 @@ module ActiveMerchant
       end
 
       def response_message(document)
-        document.root.at_xpath('Response/Error/ErrorDescription | Response/ResponseStatusDescription').text
+        "#{document.root.at_xpath('Response/ResponseStatusDescription').text}: #{document.root.at_xpath('Response/Error/ErrorDescription')}"
       end
 
       def response_digest(xml)
